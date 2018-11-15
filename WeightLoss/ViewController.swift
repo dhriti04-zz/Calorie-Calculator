@@ -78,9 +78,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             let final = val / tdee
         
             calGoal = tdee * final
-        
+            
             if (calGoal < 0) {
                 print ("Error")
+                calories.text = String("Error")
+            } else if Int(days.text!) != 1 {
+                calories.text = String(format:"%.2f", calGoal)
             }
             
         }
@@ -96,11 +99,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             calGoal = tdee * final
             
             if (calGoal < 0) {
-                print ("Error")
+                calories.text = String("Error")
+            } else if Int(days.text!) != 1 {
+                calories.text = String(format:"%.2f", calGoal)
             }
             
         }
-        calories.text = String(format:"%.2f", calGoal)
+        
     }
     
 }
